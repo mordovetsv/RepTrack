@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <include file="changelogs/20260915_001_create_users.sql"
+             relativeToChangelogFile="true"/>
+    <include file="changelogs/20260915_002_create_exercises.sql"
+             relativeToChangelogFile="true"/>
+    <include file="changelogs/20260915_003_create_body_weight_log.sql"
+             relativeToChangelogFile="true"/>
+    <include file="changelogs/20260915_004_create_workout_sessions.sql"
+             relativeToChangelogFile="true"/>
+    <include file="changelogs/20260915_005_create_goals.sql"
+             relativeToChangelogFile="true"/>
+    <include file="changelogs/20260915_006_create_sets.sql"
+             relativeToChangelogFile="true"/>
+    <include file="changelogs/20260915_007_seed_default_exercises.sql"
+             relativeToChangelogFile="true"/>
+    <include file="changelogs/20260915_008_add_day_of_week_to_goals.sql"
+             relativeToChangelogFile="true"/>
+    <include file="changelogs/20260915_009_create_muscle_groups.sql"
+             relativeToChangelogFile="true"/>
+    <include file="changelogs/20260915_010_exercise_muscle_groups.sql"
+             relativeToChangelogFile="true"/>
+
+</databaseChangeLog>
