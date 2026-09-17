@@ -25,5 +25,9 @@
              relativeToChangelogFile="true"/>
     <include file="changelogs/20260915_010_exercise_muscle_groups.sql"
              relativeToChangelogFile="true"/>
+    <include file="changelogs/20260917_011_restrict_users_gender.sql"
+             relativeToChangelogFile="true"/>
+    <include file="changelogs/20260918_012_bodyweight_multiple_per_day.sql"
+             relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

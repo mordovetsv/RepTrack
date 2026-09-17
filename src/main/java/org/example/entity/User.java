@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.NoArgsConstructor;
+import org.example.entity.enums.Gender;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -15,6 +17,7 @@ import java.time.OffsetDateTime;
  */
 @Entity
 @Table(name = "users")
+@NoArgsConstructor
 public class User {
 
     /** Первичный ключ. */
@@ -34,17 +37,23 @@ public class User {
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
-    /** Пол пользователя: male / female / other. */
+    /** Пол пользователя. */
     @Column(name = "gender", length = 10)
-    private String gender;
+    private Gender gender;
 
     /** Часовой пояс пользователя, по умолчанию Europe/Moscow. */
     @Column(name = "timezone", nullable = false, length = 50)
-    private String timezone;
+    private String timezone = "Europe/Moscow";
 
     /** Дата и время создания записи — проставляется базой данных. */
     @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
     private OffsetDateTime createdAt;
+
+    public User(long telegramId, String username) {
+
+        this.telegramId = telegramId;
+        this.username = username;
+    }
 
     /**
      * @return первичный ключ пользователя
@@ -105,14 +114,14 @@ public class User {
     /**
      * @return пол пользователя
      */
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
     /**
      * @param gender пол пользователя
      */
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 

@@ -11,13 +11,12 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.OffsetDateTime;
 
 /**
- * Один замер веса тела пользователя за конкретную дату. Полная история
- * изменений веса пользователя — это набор таких записей, например
- * {@code BodyWeightMeasurementRepository.findByUserId(...)}; «текущий»
- * вес определяется как запись с максимальной {@link #getMeasuredAt()}.
+ * Один замер веса тела пользователя. Несколько замеров в день разрешены —
+ * полная история изменений веса пользователя — это набор таких записей;
+ * «текущий» вес определяется как запись с максимальным {@link #getCreatedAt()}.
  */
 @Entity
 @Table(name = "body_weight_log")
@@ -37,9 +36,9 @@ public class BodyWeightMeasurement {
     @Column(name = "weight_kg", nullable = false, precision = 5, scale = 2)
     private BigDecimal weightKg;
 
-    /** Дата замера — не больше одного замера в день на пользователя. */
-    @Column(name = "measured_at", nullable = false)
-    private LocalDate measuredAt;
+    /** Момент замера — проставляется базой данных, несколько замеров в день разрешены. */
+    @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
+    private OffsetDateTime createdAt;
 
     /**
      * @return первичный ключ замера
@@ -84,16 +83,9 @@ public class BodyWeightMeasurement {
     }
 
     /**
-     * @return дата замера
+     * @return момент замера
      */
-    public LocalDate getMeasuredAt() {
-        return measuredAt;
-    }
-
-    /**
-     * @param measuredAt дата замера
-     */
-    public void setMeasuredAt(LocalDate measuredAt) {
-        this.measuredAt = measuredAt;
+    public OffsetDateTime getCreatedAt() {
+        return createdAt;
     }
 }

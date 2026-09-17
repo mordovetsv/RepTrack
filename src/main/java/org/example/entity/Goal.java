@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import org.example.entity.enums.DayOfWeek;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -57,7 +58,7 @@ public class Goal {
 
     /** Признак того, что цель ещё не достигнута и актуальна. */
     @Column(name = "is_active", nullable = false)
-    private boolean active;
+    private boolean active = true;
 
     /** Дата и время, когда цель была достигнута впервые; {@code null}, если ещё не достигнута. */
     @Column(name = "achieved_at")

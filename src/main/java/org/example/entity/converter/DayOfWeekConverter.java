@@ -1,7 +1,8 @@
-package org.example.entity;
+package org.example.entity.converter;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
+import org.example.entity.enums.DayOfWeek;
 
 /**
  * Конвертер JPA, преобразующий {@link DayOfWeek} в числовой идентификатор

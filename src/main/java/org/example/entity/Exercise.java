@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import org.example.entity.enums.MuscleGroup;
 
 import java.time.OffsetDateTime;
 import java.util.HashSet;
@@ -38,9 +39,7 @@ public class Exercise {
     private String description;
 
     /**
-     * Группы мышц, которые задействует упражнение. Многосуставные
-     * упражнения (например, жим лёжа) нагружают сразу несколько групп
-     * примерно в равной степени, поэтому это множество, а не одно значение.
+     * Группы мышц, которые задействует упражнение.
      */
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "exercise_muscle_groups", joinColumns = @JoinColumn(name = "exercise_id"))

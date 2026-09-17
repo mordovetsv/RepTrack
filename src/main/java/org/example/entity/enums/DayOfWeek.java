@@ -1,4 +1,4 @@
-package org.example.entity;
+package org.example.entity.enums;
 
 /**
  * День недели недельного сплита тренировок. Значения соответствуют
